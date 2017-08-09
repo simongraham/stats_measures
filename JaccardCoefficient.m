@@ -4,11 +4,10 @@ function [jaccard] = JaccardCoefficient(ground_truth, prediction)
 % Hint: use im2bw(img) to convert image to single channel
 
 %------------------------------------------------------------------
-% Author: Talha Qaiser
+% Author: Simon Graham
 % Tissue Image Analytics Lab
 % Department of Computer Science, 
 % University of Warwick, UK.
-% http://www2.warwick.ac.uk/fac/sci/dcs/people/research/talhaqaiser
 %-------------------------------------------------------------------
 
 % Check if images contain single channel
