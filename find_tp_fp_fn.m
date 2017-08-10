@@ -16,9 +16,9 @@ threshold = 0.5; % 50% threshold
 %-------------------------------------------------------------------
 
 % Regions for TP, FP, FN
-tp_mask =  im2bw((mask & gt));
-fn_mask =  im2bw(gt - mask);
-fp_mask = im2bw(mask - gt);
+tp_mask =  (mask & gt);
+fn_mask =  (gt - mask);
+fp_mask = (mask - gt);
 
 tp = 0; fp = 0; fn = 0;
 for i=0:floor(size(gt,1)/patchH)-1

@@ -9,17 +9,17 @@ close all
 % University of Warwick, UK.
 %------------------------------------------------------------------
 
-% Note: image names in prediction and ground truth file must be the same
-
 file_ext = '.png';
-%directory containing grouth_truth masks
-groundtruth_files = dir(['/Users/simongraham/Desktop/Summer_Project/binary_maps/ground_truth1/*',file_ext]); 
-groundtruth_path = '/Users/simongraham/Desktop/Summer_Project/binary_maps/ground_truth1/'; 
-prediction_path = '/Users/simongraham/Desktop/Summer_Project/binary_maps/unet/';
+groundtruth_files = dir(['/ground_truth_path/*',file_ext]);
+groundtruth_path = '/ground_truth_path/';
+prediction_path = '/prediction_path/';
 
+% Note: Image names in prediction and ground truth file must be the same
+% Change above paths accordingly and file 
+% Images must be in binary format. If not use im2bw function 
 %------------------------------------------------------------------
 
-stats_measure = 'tp_fp_fn';
+stats_measure = 'jaccard';
 
 if strcmp(stats_measure,'jaccard') == 1
     jac = 0;
@@ -27,6 +27,9 @@ if strcmp(stats_measure,'jaccard') == 1
 elseif strcmp(stats_measure,'dice') == 1
     dice = 0;
     stats = {dice};
+elseif strcmp(stats_measure,'accuracy') == 1
+    acc = 0;
+    stats = {acc};
 elseif strcmp(stats_measure,'tp_fp_fn') == 1
     tp = 0;
     fp = 0;
@@ -50,6 +53,9 @@ for i = 1:length(groundtruth_files)
     elseif strcmp(stats_measure,'dice') == 1
         dice_ = DiceIndex(gt,prediction);
         stats{1} = dice_ + stats{1};
+    elseif strcmp(stats_measure,'accuracy') == 1
+        acc_ = Accuracy(gt,prediction);
+        stats{1} = acc_ + stats{1};
     elseif strcmp(stats_measure,'tp_fp_fn') == 1
         [tp_,fp_,fn_] = find_tp_fp_fn(prediction,gt);
         stats{1} = tp_ + stats{1};
