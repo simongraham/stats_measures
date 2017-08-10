@@ -9,10 +9,14 @@ close all
 % University of Warwick, UK.
 %------------------------------------------------------------------
 
-groundtruth_files = dir('/Users/simongraham/Desktop/Summer_Project/binary_maps/ground_truth1/*.png');
-groundtruth_path = '/Users/simongraham/Desktop/Summer_Project/binary_maps/ground_truth1/';
-prediction_path = '/Users/simongraham/Desktop/Summer_Project/binary_maps/unet/';
+% Note: image names in prediction and ground truth file must be the same
+
 file_ext = '.png';
+%directory containing grouth_truth masks
+groundtruth_files = dir(['/Users/simongraham/Desktop/Summer_Project/binary_maps/ground_truth1/*,file_ext]); 
+groundtruth_path = '/Users/simongraham/Desktop/Summer_Project/binary_maps/ground_truth1/'; 
+prediction_path = '/Users/simongraham/Desktop/Summer_Project/binary_maps/unet/';
+
 %------------------------------------------------------------------
 
 stats_measure = 'tp_fp_fn';
