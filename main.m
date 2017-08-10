@@ -11,7 +11,7 @@ close all
 
 file_ext = '.png';
 groundtruth_path = '/ground_truth_path/';
-groundtruth_files = dir([ground_truth_path,'*',file_ext]);
+groundtruth_files = dir([groundtruth_path,'*',file_ext]);
 prediction_path = '/prediction_path/';
 
 % Note: Image names in prediction and ground truth file must be the same
