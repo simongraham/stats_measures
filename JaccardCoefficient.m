@@ -1,14 +1,14 @@
 function [jaccard] = JaccardCoefficient(ground_truth, prediction)
-% Both prediction and ground_truth 
-% should conatain 1-Channel 
-% Hint: use im2bw(img) to convert image to single channel
 
-%------------------------------------------------------------------
 % Author: Simon Graham
 % Tissue Image Analytics Lab
 % Department of Computer Science, 
 % University of Warwick, UK.
 %-------------------------------------------------------------------
+% Both prediction and ground_truth 
+% should conatain 1-Channel 
+%------------------------------------------------------------------
+
 
 % Check if images contain single channel
 if ~islogical(ground_truth)
