@@ -1,7 +1,15 @@
 clc
 clear 
 close all
-% 
+
+
+%-------------------------------------------------------------------
+% Author: Simon Graham
+% Tissue Image Analytics Lab
+% Department of Computer Science, 
+% University of Warwick, UK.
+%------------------------------------------------------------------
+ 
 se = strel('disk',10);
 se2 = strel('disk',10);
 
