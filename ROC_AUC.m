@@ -10,9 +10,9 @@ close all
 
 file_ext_gt = '.png';
 file_ext_prob = '.mat';
-groundtruth_path = 'groundtruth_path/';
+groundtruth_path = '/Users/simongraham/Desktop/test_ims/ground_truth/';
 groundtruth_files = dir([groundtruth_path,'*',file_ext_gt]);
-probmap_path = 'probmap_path/';
+probmap_path = '/Users/simongraham/Desktop/test_ims/prob_map/';
 
 %-------------------------------------------------------------------
 
@@ -43,7 +43,16 @@ for i = 1:length(groundtruth_files)
 
 end
 
-[X,Y] = perfcurve(labels_vector,prob_vector,1);
-plot(X,Y)
-title 'ROC Curve';
+x = linspace(0,1);
+y = linspace(0,1);
+[X,Y,T,AUC] = perfcurve(labels_vector,prob_vector,1);
+
+figure
+plot(X,Y,'r',x,y,'b--')
+legend('ROC curve', 'y=x', 'FontSize',20)
+title('ROC Curve Plot', 'FontSize',25)
+xlabel('False Positive Rate', 'FontSize',20)
+ylabel('True Positive Rate', 'FontSize',20)
+
+AUC
 
