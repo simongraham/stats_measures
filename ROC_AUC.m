@@ -10,9 +10,9 @@ close all
 
 file_ext_gt = '.png';
 file_ext_prob = '.mat';
-groundtruth_path = '/Users/simongraham/Desktop/test_ims/ground_truth/';
+groundtruth_path = '/groundtruth_path/';
 groundtruth_files = dir([groundtruth_path,'*',file_ext_gt]);
-probmap_path = '/Users/simongraham/Desktop/test_ims/prob_map/';
+probmap_path = '/probmap_path/';
 
 %-------------------------------------------------------------------
 
